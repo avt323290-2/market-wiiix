@@ -3,7 +3,6 @@ package com.example.marketwiiix.dto;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -11,13 +11,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+/**
+ * Модульные тесты для репозитория ImageRepository.
+ */
 @SpringBootTest(classes = MarketWiiixApplication.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class ImageRepositoryTest {
     @Autowired
     private ImageRepository imageRepository;
-
+    /**
+     * Тестирование поиска изображения по идентификатору продукта.
+     */
     @Test
     void testFindByImageId() {
         int id = 1;

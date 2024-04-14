@@ -43,5 +43,4 @@ public interface CartService {
      * @return Общая стоимость продуктов.
      */
     double calculateTotalPrice(List<ProductDto> productsDto);
-
 }

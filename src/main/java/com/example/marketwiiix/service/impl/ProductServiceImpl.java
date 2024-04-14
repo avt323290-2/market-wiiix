@@ -80,5 +80,4 @@ public class ProductServiceImpl implements ProductService {
         }
         return new PageImpl<>(list, PageRequest.of(currentPage, pageSize), products.size());
     }
-
 }

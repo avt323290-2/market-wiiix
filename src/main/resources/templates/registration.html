@@ -13,24 +13,24 @@
 <div th:insert="~{fragment/topnav :: navigation}"></div>
 <form class="main-content" th:action="@{/users/registrate}" th:object="${registration_form_dto}" method="post">
     <div class="container">
-        <h2>Please fill in this form to create an account.</h2>
+        <h2>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</h2>
         <hr>
-        <label for="name"><b>Username</b></label>
-        <input type="text" placeholder="Enter name" name="name" id="name">
+        <label for="name"><b>Логин</b></label>
+        <input type="text" placeholder="Введите имя" name="name" id="name">
         <div class="password-container">
-            <label for="psw"><b>Password</b></label>
+            <label for="psw"><b>Пароль</b></label>
             <div class="password-input">
-                <input type="password" placeholder="Enter password" name="password" id="psw" required>
+                <input type="password" placeholder="Введите пароль" name="password" id="psw" required>
                 <span class="toggle-password" onclick="togglePasswordVisibility()">&#128065;</span>
             </div>
         </div>
         <label for="mail"><b>Email</b></label>
-        <input type="email" placeholder="Enter email" name="email" id="mail" required>
-        <label for="user-birth-date"><b>Date of birth:</b></label>
+        <input type="email" placeholder="Введите email" name="email" id="mail" required>
+        <label for="user-birth-date"><b>Дата рождения:</b></label>
         <input type="date" name="birthDate" id="user-birth-date" required/>
-        <p>Already have an account? <a href="/login">Sign in</a>.</p>
-        <button type="submit" value="Submit" class="register-btn">Submit</button>
-        <button type="reset" value="Reset" class="register-btn">Reset</button>
+        <p>У вас уже есть учетная запись? <a href="/login">Войти в...</a>.</p>
+        <button type="submit" value="Submit" class="register-btn">Отправить</button>
+        <button type="reset" value="Reset" class="register-btn">Перезагрузить</button>
     </div>
 </form>
 </body>

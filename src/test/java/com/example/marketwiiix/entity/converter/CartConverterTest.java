@@ -17,11 +17,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(classes = MarketWiiixApplication.class)
 class CartConverterTest {
 
+    /**
+     * Класс для тестирования конвертера корзины.
+     */
     @Autowired
     private CartConverter cartConverter;
 
+    /**
+     * Конвертирует корзину из сущности в DTO.
+     */
     @Test
     void convertToDto() {
+        // Создание тестовых данных для DTO продукта
         String nameDto = "product name test";
         String descriptionDto = "description test";
         double priceDto = 0.0;
@@ -32,6 +39,7 @@ class CartConverterTest {
                 .build();
         List<ProductDto> productsDto = new ArrayList<>();
         productsDto.add(productDto);
+        // Создание ожидаемого DTO корзины
         int quantity = 1;
         CartDto expected = CartDto.builder()
                 .products(productsDto)
@@ -39,6 +47,7 @@ class CartConverterTest {
                 .quantity(quantity)
                 .build();
 
+        // Создание тестовых данных для сущности продукта
         Integer productId = 0;
         String name = "product name test";
         String description = "description test";
@@ -51,18 +60,22 @@ class CartConverterTest {
                 .build();
         List<Product> products = new ArrayList<>();
         products.add(product);
+        // Создание корзины для конвертации
         Cart cart = Cart.builder()
                 .products(products)
                 .totalPrice(price)
                 .quantity(quantity)
                 .build();
-
+        // Выполнение конвертации и проверка результата
         CartDto actual = cartConverter.convertToDto(cart);
         assertEquals(expected, actual);
     }
-
+    /**
+     * Конвертирует корзину из DTO в сущность.
+     */
     @Test
     void convertToEntity() {
+        // Создание тестовых данных для DTO продукта
         String nameDto = "product name test";
         String descriptionDto = "description test";
         double priceDto = 0.0;
@@ -73,12 +86,13 @@ class CartConverterTest {
                 .build();
         List<ProductDto> productsDto = new ArrayList<>();
         productsDto.add(productDto);
+        // Создание DTO корзины для конвертации
         CartDto cartDto = CartDto.builder()
                 .products(productsDto)
                 .totalPrice(priceDto)
                 .quantity(productsDto.size())
                 .build();
-
+        // Создание ожидаемой сущности корзины
         Integer productId = null;
         String name = "product name test";
         String description = "description test";
@@ -97,6 +111,7 @@ class CartConverterTest {
                 .quantity(products.size())
                 .build();
 
+        // Выполнение конвертации и проверка результата
         Cart actual = cartConverter.convertToEntity(cartDto);
         assertEquals(expected, actual);
     }

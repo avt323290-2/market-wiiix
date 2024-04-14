@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
 import static com.example.marketwiiix.utils.PageName.ADMIN_PAGE;
 import static com.example.marketwiiix.utils.PageName.CART_PAGE;
 import static com.example.marketwiiix.utils.PageName.HOME_PAGE;
@@ -94,5 +93,4 @@ public class GoToController {
     public ModelAndView showProfilePage() {
         return new ModelAndView(PROFILE_PAGE);
     }
-
 }

@@ -15,7 +15,9 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ * Модульные тесты для репозитория UserRepository.
+ */
 @SpringBootTest(classes = MarketWiiixApplication.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(false)
@@ -23,13 +25,16 @@ class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Проверка сохранения пользователя.
+     */
     @Test
     public void testSaveUser() {
         User user = User.builder()
-                .name("John")
-                .email("john@gmail.com")
+                .name("Ivan")
+                .email("Ivan@gmail.com")
                 .password("qwerty1990")
-                .birthDate(LocalDate.of(1990, 1, 1))
+                .birthDate(LocalDate.of(1980, 5, 1))
                 .balance(BigDecimal.valueOf(0.9))
                 .build();
         User savedUser = userRepository.save(user);
@@ -37,14 +42,17 @@ class UserRepositoryTest {
         assertEquals(savedUser, existedUser.get());
     }
 
+    /**
+     * Проверка поиска пользователя по идентификатору.
+     */
     @Test
     public void testFindById() {
         int id = 1;
         User actualUser = User.builder()
                 .userId(1)
-                .name("Wade")
-                .password("Williams")
-                .email("williams@mail.com")
+                .name("Lisa99")
+                .password("rewq2")
+                .email("Lisa99@gmail.com")
                 .birthDate(LocalDate.of(1990, 1, 1))
                 .balance(BigDecimal.valueOf(0.5))
                 .orders(new HashSet<>())
@@ -54,14 +62,17 @@ class UserRepositoryTest {
         assertEquals(expectedUser.get(), actualUser);
     }
 
+    /**
+     * Проверка поиска пользователя по имени.
+     */
     @Test
     public void testFindByName() {
-        String name = "Wade";
+        String name = "Lisa99";
         User actualUser = User.builder()
                 .userId(1)
-                .name("Wade")
-                .password("Williams")
-                .email("williams@mail.com")
+                .name("Lisa99")
+                .password("rewq2")
+                .email("Lisa99@gmail.com")
                 .birthDate(LocalDate.of(1990, 1, 1))
                 .balance(BigDecimal.valueOf(0.5))
                 .orders(new HashSet<>())
@@ -71,14 +82,17 @@ class UserRepositoryTest {
         assertEquals(expectedUser.get(), actualUser);
     }
 
+    /**
+     * Проверка поиска пользователя по электронной почте.
+     */
     @Test
     void testFindByEmail() {
-        String email = "williams@mail.com";
+        String email = "Lisa99@gmail.com";
         User actualUser = User.builder()
                 .userId(1)
-                .name("Wade")
-                .password("Williams")
-                .email("williams@mail.com")
+                .name("Lisa99")
+                .password("rewq2")
+                .email("Lisa99@gmail.com")
                 .birthDate(LocalDate.of(1990, 1, 1))
                 .balance(BigDecimal.valueOf(0.5))
                 .orders(new HashSet<>())
@@ -88,34 +102,24 @@ class UserRepositoryTest {
         assertEquals(expectedUser.get(), actualUser);
     }
 
+    /**
+     * Проверка существования пользователя по электронной почте (должно вернуть true).
+     */
     @Test
     void testExistsByEmailShouldReturnTrue() {
-        String email = "williams@mail.com";
+        String email = "Lisa99@gmail.com";
         boolean isExist = userRepository.existsByEmail(email);
         assertTrue(isExist);
     }
 
+    /**
+     * Проверка существования пользователя по электронной почте (должно вернуть false).
+     */
     @Test
     void testExistsByEmailShouldReturnFalse() {
-        String email = "notexisted@mail.com";
+        String email = "Lisa99@@mail.com";
         boolean isExist = userRepository.existsByEmail(email);
         assertFalse(isExist);
     }
-
-//    @Test
-//    void findByNameAndPassword() {
-//        String name = "Wade";
-//        String password = "Williams";
-//        User actual = User.builder()
-//                .userId(1)
-//                .name("Wade")
-//                .password("Williams")
-//                .email("williams@mail.com")
-//                .birthDate(LocalDate.of(1990, 1, 1))
-//                .balance(BigDecimal.valueOf(0.50))
-//                .orders(new HashSet<>())
-//                .build();
-//        Optional<User> expected = userRepository.findByNameAndPassword(name, password);
-//        assertEquals(actual, expected.get());
-//    }
 }
+

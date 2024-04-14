@@ -7,23 +7,24 @@
     <link th:href="@{/CSS/style.css}" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
 </head>
 <div th:insert="~{fragment/topnav :: navigation}"></div>
 
 <body>
 <div th:switch="${users}">
-    <h2 th:case="null">No users yet!</h2>
+    <h2 th:case="null">Пользователей пока нет!</h2>
     <div th:case="*">
-        <h2>users:</h2>
+        <h2>Пользователи:</h2>
         <table>
             <thead>
             <tr>
                 <th>Id</th>
-                <th>name</th>
-                <th>password</th>
+                <th>Имя</th>
+                <th>Пароль</th>
                 <th>email</th>
-                <th>birthday</th>
-                <th>balance</th>
+                <th>Дата рождения</th>
+                <th>Баланс</th>
             </tr>
             </thead>
             <tbody>

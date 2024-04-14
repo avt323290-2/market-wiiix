@@ -59,5 +59,4 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
      * @return страница с товарами для указанной категории
      */
     Page<Product> findAllByCategory_CategoryId(Integer categoryId, Pageable pageable);
-
 }

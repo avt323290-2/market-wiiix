@@ -18,7 +18,7 @@ import java.util.stream.IntStream;
 import static com.example.marketwiiix.utils.PageName.PRODUCT_PAGE;
 
 /**
- * Контроллер для управления продуктами.
+ * Контроллер для управления товарами.
  */
 @RestController
 @RequestMapping("/product")
@@ -31,9 +31,9 @@ public class ProductController {
     }
 
     /**
-     * Отображение страницы продукта по его идентификатору.
-     * @param productId Идентификатор продукта.
-     * @return Объект ModelAndView с данными о продукте.
+     * Отображение страницы товара по его идентификатору.
+     * @param productId Идентификатор товара.
+     * @return Объект ModelAndView с данными о товаре.
      */
     @GetMapping("/{productId}")
     public ModelAndView showProductPage(@PathVariable("productId") Integer productId) {
@@ -46,7 +46,7 @@ public class ProductController {
     }
 
     /**
-     * Поиск продуктов по ключевому слову в названии или описании.
+     * Поиск товаров по ключевому слову в названии или описанию.
      * @param searchKey Ключевое слово для поиска.
      * @return Объект ModelAndView с результатами поиска.
      */
@@ -59,7 +59,7 @@ public class ProductController {
     }
 
     /**
-     * Отображение списка продуктов с пагинацией.
+     * Отображение списка товаров с пагинацией.
      * @param page Номер страницы.
      * @param size Размер страницы.
      * @return Объект ModelAndView с списком продуктов на странице.

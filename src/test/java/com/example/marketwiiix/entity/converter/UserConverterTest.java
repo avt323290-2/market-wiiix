@@ -13,7 +13,7 @@ import java.util.HashSet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * Unit tests for the UserConverter class.
+ * Модульные тесты для пользовательского класса Converterclass.
  */
 @SpringBootTest(classes = MarketWiiixApplication.class)
 class UserConverterTest {
@@ -21,42 +21,43 @@ class UserConverterTest {
     private UserConverter userConverter;
 
     /**
-     * Test the conversion from User entity to RegistrationFormDto.
+     * Протестируйте преобразование из сущности пользователя в регистрационную форму.
      */
     @Test
     void convertToDto() {
         User user = User.builder()
-                .name("Wade")
-                .password("Williams")
-                .email("williams@mail.com")
-                .birthDate(LocalDate.of(1990, 1, 1))
+                .name("MihailSmirnov")
+                .password("123298qq")
+                .email("MihailSmirnov@gmail.com")
+                .birthDate(LocalDate.of(1988, 1, 1))
                 .build();
+        // Ожидаемый результат конвертации
         RegistrationFormDto actual = RegistrationFormDto.builder()
-                .name("Wade")
-                .password("Williams")
-                .email("williams@mail.com")
-                .birthDate(LocalDate.of(1990, 1, 1))
+                .name("MihailSmirnov")
+                .password("123298qq")
+                .email("MihailSmirnov@gmail.com")
+                .birthDate(LocalDate.of(1988, 1, 1))
                 .build();
         RegistrationFormDto expected = userConverter.convertToRegisterFormDto(user);
         assertEquals(actual, expected);
     }
 
     /**
-     * Test the conversion from RegistrationFormDto to User entity.
+     * Проверьте преобразование RegistrationFormDto в объект User.
      */
     @Test
     void convertToEntity() {
         RegistrationFormDto registrationFormDto = RegistrationFormDto.builder()
-                .name("Wade")
-                .password("Williams")
-                .email("williams@mail.com")
-                .birthDate(LocalDate.of(1990, 1, 1))
+                .name("Irina99")
+                .password("qertyQQ1")
+                .email("IrinaIr@mail.ru")
+                .birthDate(LocalDate.of(1990, 12, 11))
                 .build();
         User actual = User.builder()
-                .name("Wade")
-                .password("Williams")
-                .email("williams@mail.com")
-                .birthDate(LocalDate.of(1990, 1, 1))
+                .name("Irina99")
+                .password("qertyQQ1")
+                .email("IrinaIr@mail.ru")
+                .birthDate(LocalDate.of(1990, 12, 11))
                 .orders(new HashSet<>())
                 .build();
         User expected = userConverter.convertRegisterToEntity(registrationFormDto);

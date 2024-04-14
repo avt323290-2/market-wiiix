@@ -28,7 +28,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Класс User представляет пользователя системы.
+ * Класс User представляет пользователя в системе.
  */
 @Getter
 @AllArgsConstructor

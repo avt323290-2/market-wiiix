@@ -14,6 +14,9 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Модульные тесты для репозитория CategoryRepository.
+ */
 @SpringBootTest(classes = MarketWiiixApplication.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(false)
@@ -21,6 +24,9 @@ class CategoryRepositoryTest {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    /**
+     * Тестирование сохранения категории.
+     */
     @Test
     public void testSaveCategory() {
         int id = 1;
@@ -31,7 +37,9 @@ class CategoryRepositoryTest {
         Optional<Category> expectedCategory = categoryRepository.findById(id);
         assertEquals(expectedCategory.orElse(null), category);
     }
-
+    /**
+     * Тестирование поиска категории по идентификатору.
+     */
     @Test
     public void testFindCategoryById() {
         int id = 1;
@@ -43,7 +51,9 @@ class CategoryRepositoryTest {
         Optional<Category> expectedCategory = categoryRepository.findById(id);
         assertEquals(expectedCategory.orElse(null), category);
     }
-
+    /**
+     * Тестирование поиска всех категорий.
+     */
     @Test
     public void testFindAll() {
         List<Category> actualCategories = new ArrayList<>();
