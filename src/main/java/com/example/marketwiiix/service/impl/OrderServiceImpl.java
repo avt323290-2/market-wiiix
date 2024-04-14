@@ -72,5 +72,4 @@ public class OrderServiceImpl implements OrderService {
     public Order read(Integer orderId) {
         return orderRepository.findByOrderId(orderId);
     }
-
 }

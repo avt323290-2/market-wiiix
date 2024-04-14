@@ -14,23 +14,23 @@
 <div class="order-content">
     <table>
         <tr>
-            <th>Order ID</th>
-            <th>Creation Date</th>
-            <th>Customer Name</th>
+            <th>ID заказа</th>
+            <th>Дата создания</th>
+            <th>Имя клиента</th>
         </tr>
         <tr>
-            <td th:text="${order.orderId}">Order</td>
-            <td th:text="${order.createdAt}">createdAt</td>
-            <td sec:authentication="principal.username">Name</td>
+            <td th:text="${order.orderId}">Заказ</td>
+            <td th:text="${order.createdAt}">Создан</td>
+            <td sec:authentication="principal.username">Имя</td>
         </tr>
     </table>
     <table>
         <thead>
         <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
+            <th>Изображение</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Цена</th>
         </tr>
         </thead>
         <tbody>

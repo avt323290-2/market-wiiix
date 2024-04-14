@@ -25,5 +25,4 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
      * @return заказ с указанным идентификатором, если он существует, иначе null
      */
     Order findByOrderId(Integer id);
-
 }

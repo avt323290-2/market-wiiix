@@ -44,5 +44,4 @@ public interface CategoryService {
      * @return Страница продуктов по категории.
      */
     Page findProductsByCategoryId(Integer categoryId, Pageable pageable);
-
 }

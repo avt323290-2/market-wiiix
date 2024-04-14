@@ -43,5 +43,4 @@ public interface ProductService {
      * @return Страница с продуктами.
      */
     Page<Product> findPaginated(Pageable pageable);
-
 }

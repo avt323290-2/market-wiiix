@@ -12,7 +12,7 @@
 <div th:insert="~{fragment/topnav :: navigation}"></div>
 <div class="main-content">
     <div class="one-card" th:if="${product!=null}">
-        <h2>Product card</h2>
+        <h2>Карточка товара</h2>
         <img class="one-card" th:src="|${product.image.link}|" th:alt="|${product.image.link}|">
         <a th:href="@{'/product/' + ${product.productId}}" th:text="${product.name}"></a>
         <span class="one-card-price" th:utext="${'&#36;'+'&nbsp;'}"></span>
@@ -20,13 +20,13 @@
         <p th:text="${product.description}"></p>
         <p>
         <form method="post" th:action="@{'/cart/add/' + ${product.productId}}">
-            <button type="submit">Add to Cart</button>
+            <button type="submit">Добавить в корзину</button>
         </form>
         </p>
     </div>
 
     <div class="card-product" th:if="${products!=null}">
-        <h2>Product Card</h2>
+        <h2>Карточка товара</h2>
         <div class="card-block">
             <div th:each="p : ${products}">
                 <img th:src="|${p.image.link}|" th:alt="|${p.image.link}|">
@@ -36,7 +36,7 @@
                 <p th:text="${p.description}"></p>
                 <p>
                 <form method="post" th:action="@{'/cart/add/' + ${p.productId}}">
-                    <button type="submit">Add to Cart</button>
+                    <button type="submit">Добавить в корзину</button>
                 </form>
                 </p>
                 <hr>
@@ -48,6 +48,3 @@
 </body>
 <div th:insert="~{fragment/footer :: footer}"></div>
 </html>
-
-
-

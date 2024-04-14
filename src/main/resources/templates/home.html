@@ -11,11 +11,11 @@
 <body>
 <div th:insert="~{fragment/topnav :: navigation}"></div>
 <div class="main-content" style="padding-left:80px">
-    <h2>Categories</h2>
+    <h2>Категории</h2>
     <div th:each="c : ${categories}">
         <p>
             <a style="font-size: 32px" th:href="@{/category(categoryId=${c.categoryId})}" th:text="${c.name}"></a>
-            <span>Rating</span>
+            <span>Рейтинг</span>
             <span th:each="goldStars : ${#numbers.sequence(1, c.rating)}"
                   class="fa fa-star checked"></span>
             <span th:if="${'5'-c.rating &gt; '0'}" th:each="blackStars : ${#numbers.sequence(1, '5'-c.rating)}"

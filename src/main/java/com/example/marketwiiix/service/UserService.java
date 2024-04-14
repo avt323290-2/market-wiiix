@@ -23,5 +23,4 @@ public interface UserService {
      * @param registrationFormDto Данные формы регистрации.
      */
     void register(RegistrationFormDto registrationFormDto);
-
 }

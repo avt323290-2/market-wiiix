@@ -17,26 +17,26 @@
         <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar">
     </div>
     <div class="container">
-        <h2>Please Log In</h2>
+        <h2>Пожалуйста, войдите в Систему</h2>
         <div th:if="${param.error}">
-            Invalid username and password.
+            Неверные имя пользователя или пароль.
         </div>
         <div th:if="${param.logout}">
-            You have been logged out.
+            Вы вышли из системы.
         </div>
-        <label for="name"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" id="name" required>
+        <label for="name"><b>Логин</b></label>
+        <input type="text" placeholder="Введите логин" name="username" id="name" required>
         <div class="password-container">
-            <label for="psw"><b>Password</b></label>
+            <label for="psw"><b>Пароль</b></label>
             <div class="password-input">
-                <input type="password" placeholder="Enter password" name="password" id="psw" required>
+                <input type="password" placeholder="Введите пароль" name="password" id="psw" required>
                 <span class="toggle-password" onclick="togglePasswordVisibility()">&#128065;</span>
             </div>
         </div>
         <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
+            <input type="checkbox" checked="checked" name="remember"> Запомни меня
         </label>
-        <button value="Submit" type="submit">Log In</button>
+        <button value="Submit" type="submit">Авторизоваться</button>
     </div>
 </form>
 

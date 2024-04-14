@@ -84,5 +84,4 @@ public class CategoryServiceImpl implements CategoryService {
         }
         return new PageImpl<>(list, PageRequest.of(currentPage, pageSize), products.size());
     }
-
 }

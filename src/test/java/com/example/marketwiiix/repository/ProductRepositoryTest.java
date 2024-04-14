@@ -11,13 +11,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+/**
+ * Модульные тесты для репозитория ProductRepository.
+ */
 @SpringBootTest(classes = MarketWiiixApplication.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class ProductRepositoryTest {
     @Autowired
     private ProductRepository productRepository;
-
+    /**
+     * Проверка сохранения продукта.
+     */
     @Test
     void testSave() {
         Product product = Product.builder()
@@ -30,7 +34,9 @@ class ProductRepositoryTest {
         Optional<Product> existedProduct = productRepository.findById(savedProduct.getProductId());
         assertEquals(savedProduct, existedProduct.get());
     }
-
+    /**
+     * Проверка поиска продукта по идентификатору.
+     */
     @Test
     void testFindById() {
         int id = 1;
@@ -44,7 +50,9 @@ class ProductRepositoryTest {
         assertEquals(actualProduct, expectedProduct.get());
 
     }
-
+    /**
+     * Проверка поиска продукта по имени.
+     */
     @Test
     void testFindByName() {
         String name = "product name1";
@@ -58,7 +66,9 @@ class ProductRepositoryTest {
         Optional<Product> expectedProduct = productRepository.findByName(name);
         assertEquals(actualProduct, expectedProduct.get());
     }
-
+    /**
+     * Проверка поиска продуктов по идентификатору категории.
+     */
     @Test
     void testFindProductsByCategoryId() {
         Integer categoryId = 1;
@@ -77,7 +87,9 @@ class ProductRepositoryTest {
         List<Product> expectedProducts = productRepository.findProductsByCategoryId(categoryId);
         assertEquals(actualProducts, expectedProducts);
     }
-
+    /**
+     * Проверка поиска продуктов по части имени или описанию.
+     */
     @Test
     void testFindProductsByNameLike() {
         String searchKey = "test";
@@ -102,12 +114,4 @@ class ProductRepositoryTest {
         Set<Product> expected = productRepository.findProductsByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(searchKey, searchKey1);
         assertEquals(actual, expected);
     }
-
-//    @Test
-//    void findProductsByCategoryId(Pageable pageable) {
-//        List<Product> actual = productRepository.findProductsByCategoryIdWithPageable(1, pageable);
-//        List<Product> expected = Collections.emptyList();
-//        assertEquals(actual, expected);
-//
-//    }
 }

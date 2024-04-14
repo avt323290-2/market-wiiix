@@ -10,12 +10,12 @@
 </head>
 <body>
 <div th:insert="~{fragment/topnav :: navigation}"></div>
-<h2>Order history</h2>
+<h2>История заказов</h2>
 <table>
     <tr>
-        <th>Order id</th>
-        <th>Price</th>
-        <th>Created date</th>
+        <th>ID заказа</th>
+        <th>Стоимость </th>
+        <th>Дата создания</th>
     </tr>
     <th:block th:each="o : ${orders}">
         <tr>

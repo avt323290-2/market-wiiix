@@ -28,7 +28,7 @@ public class ProductDto {
     private String name;
 
     /** Описание продукта. */
-    @Size(min = 5, max = 400)
+    @Size(min = 3, max = 500)
     private String description;
 
     /** Цена продукта. */

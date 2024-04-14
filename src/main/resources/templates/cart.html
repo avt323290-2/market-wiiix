@@ -10,18 +10,18 @@
 </head>
 <body>
 <div th:insert="~{fragment/topnav :: navigation}"></div>
-<h2>Shopping Cart</h2>
+<h2>Корзина покупок</h2>
 <form th:action="@{'/cart/clear'}" method="post">
-    <button type="submit" class="clear-cart-btn">Clear cart</button>
+    <button type="submit" class="clear-cart-btn">Очистить корзину</button>
 </form>
 <div class="shopping-cart">
     <p sec:authentication="principal.username"></p>
     <div class="column-labels">
-        <label class="product-image">Image</label>
-        <label class="product-name">Name</label>
-        <label class="product-description">Description</label>
-        <label class="product-price">Price</label>
-        <label class="product-removal">Remove</label>
+        <label class="product-image">Изображение</label>
+        <label class="product-name">Название</label>
+        <label class="product-description">Описание</label>
+        <label class="product-price">Цена</label>
+        <label class="product-removal">Удалить</label>
     </div>
 
     <div th:each="p : ${cartDto.getProducts()}" class="product-block">
@@ -34,7 +34,7 @@
             <div class="product-price" th:utext="${'&#36;'+'&nbsp;'} + ${p.price}"></div>
             <div class="product-removal">
                 <form th:action="@{'/cart/remove/' + ${p.productId}}" method="post">
-                    <button type="submit">remove</button>
+                    <button type="submit">Удалить</button>
                 </form>
             </div>
         </div>
@@ -42,12 +42,12 @@
 
     <div class="totals">
         <div class="totals-item totals-item-total">
-            <label>Grand Total</label>
+            <label>Общая сумма</label>
             <div class="totals-value" id="cart-total" th:text="${'&#36;'+'&nbsp;'} + ${cartDto.totalPrice}"></div>
             <hr>
         </div>
         <form method="post" th:action="@{/cart/order/{userId}(userId=${#authentication.principal.userId})}" th:value="cartDto">
-            <button type="submit" class="order-btn">Order</button>
+            <button type="submit" class="order-btn">Заказать</button>
         </form>
     </div>
 </div>

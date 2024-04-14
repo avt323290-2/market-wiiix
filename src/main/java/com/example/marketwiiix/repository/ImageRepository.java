@@ -19,5 +19,4 @@ public interface ImageRepository extends JpaRepository<Image, Integer> {
      * @return объект Optional, содержащий найденное изображение продукта, если оно существует, или пустой, если изображение не найдено
      */
     Optional<Image> findImageByProductId(Integer productId);
-
 }
